@@ -1,0 +1,278 @@
+﻿\bfsection{\S 6 素因子と準素分解}
+
+\bfsubsection{\S 6 冒頭}
+\barquo{
+$A$の素イデアル$P$が$M$の適当な元$x$のannihilatorとなるとき、$P$を$M$の素因子という。
+}
+\begin{rem}
+この定義は、$A/P \hookrightarrow M$が成り立つことと同値である。証明はやさしいので各自試みよ。
+\end{rem}
+
+
+
+\bfsubsection{定理 6.2}
+\barquo{
+$\Spec (A_S)$を$\Spec(A)$の部分集合とみなすとき、$\Ass_A(N)= \Ass_{A_S}(N)$である。$A$がネーター環なら、$A$加群$M$に対し$\Ass(M_S)=\Ass(M) \cap \Spec(A_S)$が成り立つ。
+}
+\begin{rem}
+  本文を読んでも、何を主張していてどこでネーター性を使っているのか分かりにくい。次のようにいくつかの補題に分けて証明する。
+\end{rem}
+
+\lem{
+$N \in \Mod{A_S}$に対して、次は可換。
+\[
+\xymatrix{
+N \ar[r]^{id} \ar[d]_{\ann} & N \ar[d]^{\ann} \\
+P(A_S) \ar[r]^b & P(A)
+}
+\]
+すなわち、任意の$s \in N$に対して
+\[
+\ann_A(x) = \ann_{A_S}(x) \cap A
+\]
+が成り立つ。
+}
+
+\begin{proof}
+$a \in A$とする。このとき
+\begin{align*}
+  a \in \ann_A{x} &\iff ax=0 \\
+  &\iff \f{a}{1} \cdot x = 0 \\
+  &\iff \f{a}{1} \in \ann_{A_S}(x) \\
+  &\iff a \in \ann_{A_S}(s) \cap A
+\end{align*}
+が成り立つ。
+\end{proof}
+
+\lem{
+  $\Spec(A \setminus S)$で$\setmid{\frakp \in \Spec(A)}{\frakp \cap S = \emptyset}$を表すことにする。このとき次は可換。
+  \[
+  \xymatrix{
+  \Mod{A_S} \ar[r] \ar[dd]_{\Ass} & \Mod{A} \ar[d]^{\Ass} \\
+  {} & P(\Spec (A)) \\
+  P(\Spec (A_S)) \ar[r]^{b_*} & P(\Spec (A \setminus S)) \ar[u]_{i_*}
+  }
+  \]
+  すなわち、任意の$N \in \Mod{A_S}$に対して
+  \[
+  \Ass_A(N) = \Ass_{A_S}(N)
+  \]
+  が成り立つ。
+}
+
+\begin{proof}
+  任意の$\frakp \in \Spec(A)$について
+  \begin{align*}
+    \frakp \in \Ass_A(N) &\iff \exists x \in N \st \frakp = \ann_A(x) \\
+    &\iff \frakp = \ann_A(x)  \; \text{かつ} \; \frakp \in \Spec(A \setminus S) \\
+    &\iff \frakp = \ann_{A_S}(x) \cap A \; \text{かつ} \; \frakp \in \Spec(A \setminus S) \\
+    &\iff \frakp A_S \in \Ass_{A_S}(N) \\
+    &\iff \frakp \in \Ass_{A_S}(N)
+  \end{align*}
+  が成り立つことから判る。
+\end{proof}
+
+\lem{
+    $A$加群$M$について次は可換。
+    \[
+    \xymatrix{
+    M_S \ar[d]_{\ann} & M \ar[l] \ar[d]^{\ann} \\
+    P(A_S) & P(A) \ar[l]^g
+    }
+    \]
+    すなわち$x \in M$について
+    \[
+    \ann_A(x) A_S = \ann_{A_S}(x/1)
+    \]
+}
+
+\begin{proof}
+  $a/s \in A_S$に対して
+  \begin{align*}
+    \f{a}{s} \in \ann_A(x) A_S &\iff \exists t \in S \st ta \in \ann_A(x) \\
+    &\iff tax = 0 \\
+    &\iff ax = 0 \in M_S \\
+    &\iff a \in \ann_{A_S}(x)
+  \end{align*}
+\end{proof}
+
+
+
+
+
+\lem{
+$A$がNoether環、$M$が$A$加群で、$x \in M$なら
+\[
+\ann_{A_S}(x/1) \cap A = \ann_A(tx)
+\]
+なる$t \in S$がある。
+}
+
+\begin{proof}
+  $\ann_{A_S}(x/1) \cap A = \ann_A(x/1)$なので、$\ann_A(x/1) = \ann_A(tx)$なる$t \in S$があることを示せば十分である。
+
+  $a \in \ann_A(x/1)$とする。このとき$a \cdot \f{x}{1} = 0 \; \in  M_S$であるから、ある$s \in S$が存在して$sax=0 \; \in M$が成り立つ。ゆえに$a \in \ann_A(sx)$である。$a$の選び方により$s$は変わるので$\ann_A(x/1) \subset \bigcup_{s \in S} \ann_A(sx)$である。逆は明らかだから、
+  \[
+  \ann_A(x/1) = \bigcup_{s \in S} \ann_A(sx)
+  \]
+  である。$A$はNoetherなので集合族$\setmid{\ann_A(sx)}{s \in S}$には極大元$\ann_A(tx)$が存在する。すると任意の$s \in S$について、$S$が積閉集合であることと極大性により$\ann_A(tx) = \ann_A(stx) \supset \ann_A(sx)$が判る。したがって$\ann_A(tx)$は実は最大元であり、
+  \[
+  \ann_A(x/1) = \ann_A(tx)
+  \]
+  が成り立つ。
+\end{proof}
+
+
+\lem{
+    $A$がNoether環なら、次は可換。
+    \[
+    \xymatrix{
+    \Mod{A_S} \ar[dd]_{\Ass} & \Mod{A} \ar[l] \ar[d]^{\Ass}  \\
+    {} & P(\Spec (A)) \ar[d]^{i^*} \\
+    P(\Spec (A_S)) \ar[r]^{b_*} & P(\Spec (A \setminus S))
+    }
+    \]
+    すなわち、$A$加群$M$について
+    \[
+    \Ass_{A_S}(M_S) = \Ass_A(M) \cap \Spec(A_S)
+    \]
+    が成り立つ。
+}
+
+\begin{proof}
+  $\frakp \in \Spec (A \setminus S)$とする。このとき
+  \begin{align*}
+    \frakp \in \Ass_A(M) &\iff \exists x \in M \st \frakp = \ann_A(x) \\
+    &\iff \exists s \in S \st \frakp = \ann_A(s \cdot x) \\
+    &\iff \frakp A_S = \ann_{A_S}(x/1) \\
+    &\iff \frakp A_S \in \Ass_{A_S}(M_S)
+  \end{align*}
+  であるから、示したいことが言えた。
+\end{proof}
+
+
+\bfsubsection{定理 6.3}
+\barquo{
+$\Ass(M) \subset \Ass(M') \cup \Ass(M'')$
+}
+\begin{rem}
+  等号が成り立たない例としては次の完全系列がある。
+  \[
+  \xymatrix{
+  0 \ar[r] & \Z \ar[r]^{\times 12} & \Z \ar[r] & \Z / 12 \Z \ar[r] & 0
+  }
+  \]
+  このとき$\Ass(\Z) = \{ (0) \} $であるが$\Ass( \Z / 12 \Z) = \{ (2), (3)\}$であるので等号が成立しない。
+\end{rem}
+
+
+\bfsubsection{定理 6.5}
+\barquo{
+$\Ass(A/P)=\{ P \}$であることに注意すればよい。
+}
+\begin{proof}
+$\{ P \} \subset \Ass(A/P)$は、$P=\ann(1)$よりあきらか。逆に$Q \in \Ass(A/P)$であるとする。このとき素因子の定義から$Q = \ann(\ol{x})$なる$\ol{x} \in A/P$がある。したがって$P \subset Q$である。一方で$y \in Q$とすると$yx \in P$が従う。$x$は$P$の元ではあり得ないので、$P$が素イデアルであることより$y \in P$である。よって$P \supset Q$
+、すなわち$P = Q$である。
+\end{proof}
+
+
+
+
+
+\bfsubsection{定理 6.5}
+\barquo{
+iii) $P$を$\Supp(M)$の極小元として$P \in \Ass(M)$を示せばよい。
+}
+\begin{rem}
+  $\Ass(M)$における極小元が$\Supp(M)$でも極小元であることも確かめる必要がある。
+
+  いま$P \in \Ass(M)$が$\Ass(M)$において極小であるとする。任意に$Q \subset P$なる$Q \in \Supp(M)$が与えられたとしよう。このとき$M_Q \neq 0$であり、$A$はNoetherなので$\Ass_{A_Q}(M_Q) \neq \emptyset$である。ゆえに
+  \begin{align*}
+  \emptyset \neq \Ass_{A_Q}(M_Q) &= \Ass_A(M) \cap \Spec (A_Q) \\
+  &\subset \Ass_A(M) \cap \Spec (A_P) \\
+  &= \{ P \}
+\end{align*}
+が成り立つので$P \in \Ass_{A_Q}(M_Q) \subset \Spec (A_Q)$でなくてはならない。よって$P = Q$である。$Q$は任意だったので、$P$は$\Supp(M)$でも極小ということが示せた。
+\end{rem}
+
+
+
+
+\bfsubsection{定理 6.5 直後}
+\barquo{
+$A$をNoether環、$M$を有限$A$加群とする。$\Supp(M)$の極小元を$P_1, \cdots , P_r$とすれば$\Supp(M)= V(P_1) \cup \cdots \cup V(P_r)$であり
+}
+\begin{proof}
+  $A$がNoether環で$M$が有限$A$加群という仮定から、$\Supp(M)$の極小元は有限個しかないので、$\Supp(M)$の極小元を$P_1, \cdots , P_r$とおくことができる。このとき$\Supp(M) \subset V(P_1) \cup \cdots \cup V(P_r)$である。逆に、$Q \in V(P_1) \cup \cdots \cup V(P_r)$なら$Q \supset P_i$なる$i$がある。すると
+  \[
+  0 \neq M_{P_i} = M_Q \otimes_A A_{P_i}
+  \]
+  より$M_Q \neq 0$なので$Q \in \Supp(M)$である。
+\end{proof}
+
+
+
+
+\bfsubsection{定理 6.6}
+\barquo{
+前定理により$\Supp (M/N) = V(\frakp)$、したがって$P = \sqrt{\ann(M/N)}$である。
+}
+\begin{proof}
+  $M$は有限生成なので、$M/N$も有限生成。よって
+  \[
+  \Supp (M/N) = V(\ann(M/N))
+  \]
+  が成り立つ。したがって
+  \begin{align*}
+    \sqrt{\ann(M/N)} &= \bigcap_{\frakq \in V(\ann(M/N))} \frakq \\
+    &= \bigcap_{\frakq \in V(\frakp)} \frakq \\
+    &= \sqrt{\frakp} \\
+    &= \frakp
+  \end{align*}
+　が判る。
+\end{proof}
+
+
+
+
+
+\bfsubsection{定理 6.8 (i)}
+\barquo{
+$x \in K_i$, $x \neq 0$なら$\ann(x)=P_i$であるから
+}
+\begin{rem}
+  この部分は定理6.3の証明と同様。
+\end{rem}
+
+
+
+\bfsubsection{定理 6.8 (ii)}
+\barquo{
+一方$N : M$は$P_1$に属する準素イデアルだから
+}
+\begin{rem}
+  要するに$\sqrt{\ann(M/N)} = P_1$ということである。
+\end{rem}
+
+
+
+\bfsubsection{定理 6.8 (iii)}
+\barquo{
+$i > 1$に対し$\ann(M/N_i)$は$P_i$のべきを含み、$P_i \not\subset P_1$であるから$(M/N_i)_P=0$であり、
+}
+\begin{proof}
+  $P_i$は$\ann(M/N_i)$の根基で、$A$はNoetherなので$P_i^{v} \subset \ann(M/N_i)$なる$v \geq 1$がある。$P = P_1$は極小素因子としてとってきたので$P_i \not\subset P_1$であり、$P$は素イデアルなので$P_i^v \cap P^c \neq \emptyset$である。よって$\ann(M/N_i) \cap P^c \neq \emptyset$である。したがって$(M/N_i)_P=0$がわかる。
+\end{proof}
+
+
+
+
+\bfsubsection{定理 6.8 (iii)}
+\barquo{
+したがって$\vp_P^{-1}(N_P) = \vp_P^{-1}((N_1)_P)$であり、この右辺は容易に確かめられるように$N_1$に等しい。
+}
+\begin{proof}
+  $\vp_P^{-1}((N_1)_P) = N_1$を示そう。$\vp_P^{-1}((N_1)_P) \supset N_1$はあきらかなので逆を示す。
+
+  $x \in \vp_P^{-1}((N_1)_P)$とする。このとき$x/1 \in (N_1)_P$であるから、ある$s \in A \setminus P$が存在して$s x \in N_1$である。このときもし$x \not\in N_1$ならば、$s$は$M/N_1$-非正則ということになり、$s \in P$でなければならない。これは矛盾。
+\end{proof}

@@ -1,0 +1,116 @@
+\bfsection{\S 4. 局所化とスペクトル}
+
+\bfsubsection{定理4.4 直前}
+\barquo{
+$P$に$P \cap A$を対応させる写像$\Spec (B) \to \Spec (A)$を${}^a f$と書く。容易にわかるように$({}^af)^{-1}(V(I)) = V(IB)$であるから、${}^af$は連続である。
+}
+\begin{proof}
+  同値変形をおこなうと
+  \begin{align*}
+    P \in ({}^af)^{-1}(V(I)) &\iff ({}^af)(P) \in V(I) \\
+    &\iff I \subset f^{-1}(P) \\
+    &\iff f(I) \subset P \\
+    &\iff IB \subset P \\
+    &\iff P \in V(IB)
+  \end{align*}
+  が判る。
+\end{proof}
+
+
+
+\bfsubsection{定理 4.4 直前}
+\barquo{
+たとえば1点からなる集合$\{ \frakp \}$が$\Spec A$の閉集合であるためには、$\frakp$が極大イデアルであることが必要十分である。(一般に$\{ \frakp \}$の閉包$\ol{\{ \frakp \} }$は$V(\frakp)$に等しい。)
+}
+\begin{proof}
+$\{ \frakp \}$を含む閉集合$V(I)$が与えられたとする。このとき$\frakp \in V(I)$であるから$I \subset \frakp$である。よって$V(\frakp) \subset V(I)$である。ゆえに$V(\frakp)$は$\{ \frakp \}$を含む閉集合$V(I)$の共通部分に含まれる閉集合なので$\ol{\{ \frakp \}} = V(\frakp)$である。
+
+したがって$\{ \frakp \}$が閉集合であることは$\{\frakp\}=V(\frakp)$と同じことであるが、$\frakp$は真のイデアルだから$\frakp$を含む極大イデアルがあるはずで、よって$\frakp$は極大イデアルである。逆に$\frakp$が極大イデアルであれば閉点となることはあきらか。
+\end{proof}
+
+
+
+
+\bfsubsection{定理 4.4 直前}
+\barquo{
+$M$が有限生成なら、$M = A\gro_1 + \cdots + A\gro_n$とすると
+\begin{align*}
+  &\frakp \in \Supp (M) \iff M_{\frakp} \neq 0 \iff \exists i : M_{\frakp} \text{で$\gro_i \neq 0$} \iff \\
+  &\exists i : \ann(\gro_i) \subset \frakp \iff \ann(M) = \bigcap_{i = 1}^n \ann(\gro_i) \subset \frakp
+\end{align*}
+であるから、$\Supp (M)$は$\Spec (A)$の閉集合$V(\ann (M))$に等しい。
+}
+\begin{rem}
+  $M$が有限生成であるという仮定は
+  \[
+\bigcap_{i = 1}^n \ann(\gro_i) \subset \frakp \To \exists i : \ann(\gro_i) \subset \frakp
+  \]
+  を示すところで必要。$M$が有限生成でないときには、
+  \[
+  A = \Z \quad M = \bigoplus_{p : \text{prime}} \Z / p\Z
+  \]
+  が反例になる。素数$q$について
+  \begin{align*}
+    M_q &= \bigoplus_{p : \text{prime}} (\Z / p\Z \otimes_{\Z} \Z_q) \\
+    &= \bigoplus_{p : \text{prime}} (\Z_q / p\Z \otimes_{\Z} \Z_q) \\
+    &=  \Z_q / (q\Z \otimes_{\Z} \Z_q) \\
+    &= (\Z/ q\Z)\text{の商体} \\
+    &= \Z/ q\Z \\
+    &\neq 0
+  \end{align*}
+  なので、$\Supp M = \Spec A \setminus \single$である。これは開でも閉でもない。
+\end{rem}
+
+
+
+
+\bfsubsection{定理 4.10}
+\barquo{
+$M$が有限表示加群ならば、$U_F = \setmid{\frakp \in \Spec (A)}{ \text{ $M_{\frakp}$は自由$A_{\frakp}$加群 }  }$は$\Spec (A)$の開集合である。
+}
+\begin{proof}
+  $M_{\frakp}$が自由$A_{\frakp}$加群だとし、$\gro_1, \cdots , \gro_r$をその基底とする。(i)の証明の最後の注意により、$\frakp \in \Spec (A)$のある近傍$D(a)$が存在して、$D(a)$の各点$\frakq$において$\gro_1, \cdots , \gro_r$が$M_{\frakq}$を生成する。以降$B = A_a$、$N = M \otimes_A A_a$とする。
+
+  このとき
+  \[
+  \forall \frakq \in D(a) \quad M_{\frakq} / \sum A_{\frakq} \gro_i = 0
+  \]
+  であるが、$B_{\frakq B}=A_{\frakq}$により
+  \begin{align*}
+    \forall \frakq \in D(a) \quad 0 &= (M / \sum A \gro_i) \otimes_A A_{\frakq} \\
+    &=  (M / \sum A \gro_i) \otimes_A B_{\frakq B} \\
+    &= (M / \sum A \gro_i) \otimes_A B \otimes_B B_{\frakq B} \\
+    &= (N / \sum B \gro_i) \otimes_B B_{\frakq B}
+  \end{align*}
+  が成り立つ。$\Spec (B)= \setmid{\frakq B}{\frakq \in D(a)}$なので、定理4.6により
+  \[
+N / \sum B \gro_i = 0
+  \]
+  が結論できる。
+
+  ここで$\vp \colon A^r \to M$を$\vp(a_1, \cdots , a_r) = \sum a_i \gro_i$で定めると
+  \[
+  \xymatrix{
+  0 \ar[r] & \Ker (\vp \otimes B) \ar[r] & B^r \ar[r]^{\vp \otimes B}  & N \ar[r] & 0
+  }
+  \]
+  は$B$加群の完全系列。$A$加群の完全系列だと思ってこれに$A_{\frakp}$をテンソルすると、$a$の定義により$B \otimes_A A_{\frakp} = A_{\frakp}$なので
+  \[
+  \xymatrix{
+    0 \ar[r] & \Ker (\vp \otimes B)  \otimes_A A_{\frakp} \ar[r] & A_{\frakp}^r \ar[r]^{\vp \otimes A_{\frakp}}  & M_{\frakp} \ar[r] & 0
+  }
+  \]
+  は$A_{\frakp}$加群の完全系列。よって$\vp \otimes A_{\frakp}$が同型であることにより
+  \begin{align*}
+    0 &= \Ker (\vp \otimes B) \otimes_A A_{\frakp} \\
+    &= (\Ker \vp \otimes_A B) \otimes_A A_{\frakp} \\
+    &= \Ker \vp \otimes_A A_{\frakp}
+  \end{align*}
+  であることが判る。
+
+  $M$が有限表示であるという仮定から、$\Ker \vp$は有限生成なので(i)により
+  \[
+  \exists \frakp \in V \text{かつ} V \opsub \Spec A \text{かつ} \forall \frakq \in V \quad \Ker \vp \otimes_A A_{\frakq} = 0
+  \]
+  このとき任意の$\frakq \in V \cap D(a)$について$\vp \otimes A_{\frakq} \colon A_{\frakq}^r \xrightarrow{\vp \otimes A_{\frakq}} M_{\frakq} $は同型である。
+\end{proof}

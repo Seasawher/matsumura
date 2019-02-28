@@ -1,0 +1,94 @@
+\bfsection{\S 9 整拡大}
+
+
+
+\bfsubsection{定理 9.1 直後}
+\barquo{
+とくに$A$が整域で、かつその商体の中で整閉であるとき、単に$A$が整閉整域であるという。環$A$の各素イデアル$\frakp$に対し$A_{\frakp}$が整閉整域であるとき、$A$を正規環とよぶ。
+}
+\begin{rem}
+  次の命題が成り立つことが知られている。
+\end{rem}
+
+\prop{ (整拡大はテンソルで保たれる) \\
+$k$は環、$A,B,C$は$k$代数であるような可換環とする。このとき$B$が$A$上整なら、$B \ts C$は$A \ts C$上整。
+}
+\begin{proof}
+  生成元$b \ts c \in B \ts C$をとる。このとき、$b$は$A$上整なので
+  \[
+  b^n + a_{n-1} b^{n-1} + \cdots + a_{1} b + a_0 = 0
+  \]
+  なる$a_0 , \cdots , a_{n-1} \in A$がある。したがって
+  \[
+  (b \ts c)^n + (a_{n-1} \ts c)(b \ts c)^{n-1} + \cdots + (a_1 \ts c^{n-1}) (b \ts c) + (a_0 \ts c^n) = 0
+  \]
+  である。よって$b \ts c$は$A \ts C$上整。ゆえに、生成元がすべて整なので$B \ts C$は$A \ts C$上整。
+\end{proof}
+
+
+\prop{
+(整閉包は局所化で不変) \\
+$B$は$A$代数であり、$C$は$B$における$A$の整閉包であるとする。$S \subset A$は積閉集合とする。このとき$B_S$における$A_S$の整閉包は$C_S$に等しい。
+}
+\begin{proof}
+  $C_S$が$A_S$上整であることは前の命題からあきらか。逆に$B_S$の元$b/s$が$A_S$上整だったとして$b/s \in C_S$を示そう。仮定より$b/s$は$A_S$上整であるが、$s$のべきを乗ずることにより$b$は$A_S$上整としてよい。したがって、
+  \[
+  b^n + \f{a_{n-1}}{t} b^{n-1}  + \cdots + \f{a_1}{t} b + \f{a_0}{t} = 0
+  \]
+  なる$a_0 , \cdots , a_{n-1} \in A$と$t \in S$がある。両辺に$t^n$をかけることにより、
+  \[
+    (tb)^n + a_{n-1} (tb)^{n-1}  + \cdots + a_1 t^{n-2} (tb) + a_0 t^{n-1} = 0
+  \]
+  をうる。よって$tb$は$A$上整だから、$tb \in C$である。すなわち$b/s \in C_S$がわかる。
+\end{proof}
+
+
+
+\prop{
+$A$は整域とする。このとき次は同値。
+\begin{description}
+  \item[(1)] $A$は整閉整域
+  \item[(2)] $A$は正規環
+  \item[(3)] 任意の極大イデアル$\frakm \subset A$に対して$A_{\frakm}$は整閉整域
+\end{description}
+}
+\begin{proof}
+  証明はしなくてもいいという読者も多いだろう。が、念のために書いておく。
+  \begin{description}
+    \item[(1)$\To$(2)] 整閉包は局所化で不変であることによる。
+    \item[(2)$\To$(3)] 自明。
+    \item[(3)$\To$(1)] 環拡大$B/A$があるとき、$B$における$A$の整閉包を$\ol{B/A}$で書くことにする。(ここだけの記号。正直あんまりよくない記号だと思う) 任意の極大イデアル$\frakm \subset A$について$A_{\frakm}$は整閉整域なので、$K$を$A$の商体とすると
+    \begin{align*}
+      A_{\frakm} &= \ol{K/ A_{\frakm}} \\
+      &= \ol{K \ts A_{\frakm} / A_{\frakm}} \\
+      &= \ol{K/A} \ts A_{\frakm}
+    \end{align*}
+    したがって、$A$加群として$(\ol{K/A} / A) \ts  A_{\frakm} = 0$である。任意の極大イデアルで局所化して$0$なので定理4.6により$\ol{K/A} =A$である。つまり$A$は整閉。
+  \end{description}
+\end{proof}
+
+
+\bfsubsection{定理 9.1 直後}
+\barquo{
+$A$がネーター環で上の意味で正規なら、$\frakp_1, \cdots ,\frakp_r$を極小素イデアルの全体とすれば、どんな素イデアル$\frakp$についても$A_{\frakp}$が整域ということから$(0) = \frakp_1 \cap \cdots \cap \frakp_r$, $\frakp_i + \frakp_j = A \; (i \neq j)$, したがって$A = A/ \bigcap \frakp_i = A/\frakp_1 \tm \cdots \tm A/\frakp_r$となり、各$A/\frakp_i$
+は整閉整域である。逆に有限個の整閉整域の直積は正規環である。
+}
+\begin{proof}
+  Zornの補題を用いることにより、任意の環は極小素イデアルを持つことがいえる。ここでは特に$A$はNoetherなので、定理6.5より極小素イデアルは有限個である。そこでそれらを$\frakp_1, \cdots ,\frakp_r$とおくことができる。環$A$の巾零元の全体$\sqrt{0}$は、各$A_{\frakp}$が整域であることから
+  \[
+  \sqrt{0} \ts A_{\frakp} = 0
+  \]
+  を満たす。したがって、$\frakp$は$A$の任意の素イデアルだったから$\sqrt{0}=0$である。したがって、巾零元の全体とは素イデアルの共通部分のことだったから、$(0) = \frakp_1 \cap \cdots \cap \frakp_r$が成り立つ。
+
+  異なる$\frakp_i$が互いに素であること: ある$i,j$について$\frakp_i + \frakp_j \subset \frakm$なる極大イデアル$\frakm$が存在したとして、$\frakp_i = \frakp_j$を示せばよい。このとき、$\frakp_i \subset \frakm$かつ$\frakp_j \subset \frakm$なので、イデアル$\frakp_i A_{\frakm}$, $\frakp_j A_{\frakm}$は素イデアルである。$\frakp_i$, $\frakp_j$は極小素イデアルだったから、$\frakp_i A_{\frakm}$, $\frakp_j A_{\frakm}$
+  も極小素イデアル。ところが仮定により$A_{\frakm}$は整閉整域、とくに整域なので、$A_{\frakm}$の極小素イデアルは$0$だけである。ゆえに$\frakp_i A_{\frakm}=\frakp_j A_{\frakm}$である。引き戻して$\frakp_i = \frakp_j$を得る。
+
+ $A/\frakp_i$が整閉整域であること: 整域であることはあきらかなので、正規環であることを示せば十分である。$\frakq$を$A/\frakp_i$の素イデアルとする。$\frakq$は$\frakp_i$を含む$A$の素イデアルと同一視できて、
+ \[
+ (A/\frakp_i)_{\frakq} = A_{\frakq} / \frakp_i A_{\frakq}
+ \]
+ である。ここで$\frakp_i$の極小性により、$ \frakp_i A_{\frakq}$は極小素イデアル。ところが$A_{\frakq}$は仮定により整域なので、$\frakp_i A_{\frakq} = 0$でなくてはならない。よって$(A/\frakp_i)_{\frakq} = A_{\frakq}$となり、右辺は整閉整域だったから、$A/\frakp_i$が正規環であることがいえた。
+
+ 有限個の整閉整域の直積が正規環であること: $A$が整閉整域、$B$は$A$の有限個の直積$A \tm \cdots \tm A$とする。このとき、$\frakq \subset B$を素イデアルとすると、$\frakq$はある素イデアル$\frakp \subset A$に関して$A \tm \cdots \tm \frakp \tm \cdots \tm A$という形をしている。したがって$B_{\frakq} = (A \tm \cdots \tm A)_{\frakq} \cong A_{\frakp}$
+ であり、$A$は整閉整域だから$A_{\frakp}$は整閉整域。したがって$B$は正規環である。
+\end{proof}

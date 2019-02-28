@@ -1,0 +1,343 @@
+\bfsection{\S 7 平坦性}
+
+\bfsubsection{\S 7 冒頭}
+\barquo{
+$\calf$が完全列なら$0 \to N_1 \to N_2 \to N_3 \to 0$のような形の列(いわゆる短完全列)に分解できるから、平坦性の定義において$\calf$として短完全列のみを考えればよい。
+}
+\begin{rem}
+  まず次の補題を示す。
+\end{rem}
+
+\lem{
+$M$は(短完全列について)平坦な$A$加群であるとし、$A$加群の準同型$f \colon N_1 \to N_2$があるとする。このとき次が成り立つ。
+\begin{description}
+  \item[(1)] $\Im f \otimes M = \Im(f \otimes M)$.
+  \item[(2)] $\Ker f \otimes M = \Ker (f \otimes M)$.
+\end{description}
+}
+\begin{rem}
+  一般に加群の圏からAbel群への共変関手$F$が左完全ならそれは$\Ker$を保ち、右完全ならそれは$\Coker$を保つ。証明はやさしいが、[Rotman]\cite{Rotman} 命題5.25を参照のこと。
+\end{rem}
+\begin{proof}
+  次の完全な行をもつ可換図式を考える。
+  \[
+  \xymatrix{
+  {} & N_2 & {} \\
+  N_1 \ar[r]^{\wt{f}} \ar[ur]^f & \Im f \ar[u] \ar[r] & 0
+  }
+  \]
+  は完全。したがって$M$をテンソルすると
+  \[
+  \xymatrix{
+  {} & N_2 \ts M & {} \\
+  N_1 \ts M \ar[r]^{\wt{f} \ts M} \ar[ur]^{f \ts M} & \Im f \ts M  \ar[u] \ar[r] & 0
+  }
+  \]
+  を得る。テンソル積の右完全性により
+  \begin{align*}
+    \Im f \ts M &= \Im (\wt{f} \ts M) \\
+    &\cong \Im (f \ts M)
+  \end{align*}
+  が成り立つ。
+
+  また、完全系列
+  \[
+  0 \to \Ker f \to N_1 \xto{f} N_2
+  \]
+  を考える。$M$をテンソルして、完全系列
+  \[
+  0 \to \Ker f \ts M \to N_1 \ts M \xto{f \ts M} N_2 \ts M
+  \]
+  を得る。したがって
+  \begin{align*}
+    \Ker (f \ts M) &= \Im (\Ker f \ts M \to N_1 \ts M) \\
+    &\cong \Ker f \ts M
+  \end{align*}
+  である。
+\end{proof}
+
+\begin{proof}
+  引用部の証明に戻る。短完全列について平坦な$A$加群$M$があり、完全系列
+  \[
+  \calf \colon  \cdots \to N_n \xrightarrow{f_n} N_{n+1} \to \cdots
+  \]
+  が与えられたとする。このとき
+  \[
+  \Ker( f_n \otimes M) = \Ker f_n \otimes M = \Im f_{n-1} \otimes M = \Im (f_{n-1} \otimes M)
+  \]
+  より$M$が平坦であることがわかる。
+\end{proof}
+
+
+
+
+
+\bfsubsection{定理 7.1}
+\barquo{
+一般に、$B$が$A$代数で$M$, $N$が$B$加群なら、テンソル積の構成法からわかるように、$M \otimes_B N$は$M \otimes_A N$を$\setmid{bx \otimes y - x \ts by}{x \in M, y \in N , b \in B}$で生成された部分加群で割った剰余加群である。
+}
+\begin{proof}
+  $J \subset M \ts_A N$を$\setmid{bx \otimes y - x \ts by}{x \in M, y \in N , b \in B}$で生成された部分加群とする。このとき$M \ts_A N / J$に$B$加群の構造$B \times (M \ts_A N / J) \to M \ts_A N / J$を
+  \[
+  b \cdot (x \ts y) = bx \ts y = x \ts by
+  \]
+  により定めることができる。この構造が$M \ts_B N$の構造と一致することは直感的にはいかにもありそうなことだが、実際に普遍性を使って確認することができる。詳しいことは読者に任せる。
+\end{proof}
+
+
+
+\bfsubsection{定理 7.1}
+\barquo{
+最初の注意と仮定により$K_{P}=0$を得る。
+}
+\begin{proof}
+  $0 \to N' \xto{f} N $は$\Mod{A}$において完全であるとする。このとき$K = \Ker (f \ts M)$とおくと
+  \[
+  0 \to K \to N' \ts_A M \xto{f \ts M} N \ts_A M
+  \]
+  は$\Mod{B}$において完全である。よって$B_P \in \Mod{B}$の平坦性により
+  \[
+    0 \to K_P \to N' \ts_A M_P \xto{f \ts M_P} N \ts_A M_P
+  \]
+  は$\Mod{B_P}$において完全。ゆえに
+  \[
+  K_P = \Ker (f \ts_A M_P) \cong \Ker (f \ts_A A_{\frakp} \ts_{A_{\frakp}}  M_P )
+  \]
+  であるが、$A_{\frakp} \in \Mod{A}$と$M_P \in \Mod{A_{\frakp}}$の平坦性により$K_P = 0$である。
+
+  以上の議論では、最初の注意は使わなかった。
+\end{proof}
+
+
+
+
+\bfsubsection{定理 7.2}
+\barquo{
+$M \neq \frakm M \supset \ann(x) \cdot M$であるから$Ax \ts M \neq 0$.
+}
+\begin{proof}
+  テンソル積の右完全性により
+  \begin{align*}
+      Ax \ts M &\cong A / \ann(x) \ts M \\
+      &\cong M / \Im ( \ann(x) \ts M \to M)  \\
+      &= M / \ann(x) \cdot M \\
+      &\neq 0
+  \end{align*}
+  であることからわかる。
+\end{proof}
+
+
+
+\bfsubsection{定理 7.2 直後}
+\barquo{
+よって${}^ag \colon \Spec(C) \to \Spec(B)$の像は
+\[
+\setmid{P \in \Spec(B)}{P \supset \frakp B, P \cap f(S) = \emptyset } = \setmid{P \in \Spec(B)}{P \cap A = \frakp}
+\]
+すなわち${}^af^{-1}(\frakp)$であり、
+}
+\begin{proof}
+  $g$の定義により次は可換。
+  \[
+  \xymatrix{
+  C \ar[r]^I & B_S / \frakp B_S \\
+  B \ar[u]^g \ar[r]^{\psi} & B_S \ar[u]_{\pi}
+  }
+  \]
+  したがって$ I \circ g = \pi \circ \psi$なので${}^ag \circ {}^aI = {}^a\psi  \circ {}^a\pi$なので
+  \begin{align*}
+    \Im ({}^ag) &= \Im({}^a\psi  \circ {}^a\pi) \\
+    &= \setmid{\psi^{-1}(P') }{P' \in \Spec(B_S), \frakp B_S \subset P' } \\
+    &= \setmid{P \in \Spec(B)}{P \cap f(S) = \emptyset , \frakp B \subset P} &(\frakp B_S \subset P' \subsetneq B_S \text{による})
+  \end{align*}
+  である。ここで$P \cap f(S) = \emptyset \iff f^{-1}(P) \subset \frakp$であることと、$\frakp B \subset P \iff f^{-1}(P) \supset \frakp$であることに注意すると$\Im({}^ag) = \setmid{P \in \Spec(B)}{P \cap A = \frakp}$がわかる。
+\end{proof}
+
+
+
+\bfsubsection{定理 7.2 直後}
+\barquo{
+${}^ag$は$\Spec(C)$から${}^af^{-1}(\frakp)$の上への位相同形をひきおこす。
+}
+\begin{proof}
+  次の図式は可換。
+  \[
+  \xymatrix{
+  \Spec(C) \ar[d]_{{}^ag} & \Spec(B_S / \frakp B_S) \ar[l]_{{}^aI} \ar[d]^{{}^a\pi} \\
+  {}^af^{-1}(\frakp) & V(\frakp B_S) \ar[l]_{{}^a\psi|_{V(\frakp B_S)}}
+  }
+  \]
+  すると、${}^ag$以外すべて同相なので${}^ag$も同相。
+\end{proof}
+
+
+\bfsubsection{定理 7.3 (ii)}
+\barquo{
+なおさら$M_P / \frakm M_P = (M/ \frakm M)_P \neq 0$、
+}
+\begin{rem}
+  $0 \neq M_P / \frakm M_P$が無断で使われているが、これは全射$M_P / \frakm M_P \to M_P / P M_P$の存在からいえる。
+\end{rem}
+
+
+
+\bfsubsection{定理 7.4 (i)}
+\barquo{
+これはi)の主張を意味する。
+}
+\begin{rem}
+  $(N_1 \cap N_2) \ts M \subset (N_1 \ts M) \cap (N_2 \ts M)$はあきらか。また、$(N_1 \ts M) \cap (N_2 \ts M)$の元であれば$N \ts M \to (N \ts M)/(N_1 \ts M) \oplus (N \ts M)/(N_2 \ts M)$の核に入るので、逆の包含が言える。
+\end{rem}
+
+
+
+
+\bfsubsection{定理 7.6}
+\barquo{
+完全列$K \xto{i} A^n \xto{\vp} A^r$に$\ts M$を施して完全列
+\[
+K \ts M \xto{i \ts 1} M^n \xto{\vp_M} M^r
+\]
+が得られる。
+}
+\begin{proof}
+次の完全列がある。
+\begin{gather*}
+  0 \to K \xto{i} A^n \xto{\wt{\vp} } \Im \vp \to 0 \\
+  0 \to \Im \vp \xto{j} A^r \to \Coker \vp \to 0
+\end{gather*}
+これに$M$をテンソルすると、平坦性により次は完全。
+\begin{gather*}
+  0 \to K \ts M \xto{i \ts M} A^n \ts M \xto{\wt{\vp} \ts M} \Im \vp \ts M \to 0 \\
+  0 \to \Im \vp \ts M \xto{j \ts M} M^r \to \Coker \vp \ts M \to 0
+\end{gather*}
+したがって
+\begin{align*}
+  \Ker \vp_M &= \Ker ((j \circ \wt{\vp}) \ts M ) \\
+  &= \Ker ((j \ts M )(\wt{\vp} \ts M))  \\
+  &= \Ker (\wt{\vp} \ts M)  \\
+  &= \Im (i \ts M )
+\end{align*}
+がわかる。よって求める完全性がいえた。
+\end{proof}
+
+
+
+\bfsubsection{定理 7.7}
+\barquo{
+ここで$I = \setmid{a \in A}{a \gro \in N'}$とおけば
+\[
+0 \to N' \to N \to A/I \to 0
+\]
+という完全列が得られる。
+}
+\begin{rem}
+  $\gro$倍が定める写像$A \to N / N'$の核は$I$なので$N / N' \cong A / I$である。
+\end{rem}
+
+
+
+
+\bfsubsection{定理 7.7 直後}
+\barquo{
+上の定理から定理6の逆が証明できる。
+}
+\begin{rem}
+  つまり、環$A$と$A$加群$M$について
+  \[
+  M\text{が平坦} \iff \forall n,r \; \forall \vp \colon A^n \to A^r (\text{linear}) \quad \Ker \vp \ts M \to M^n \xto{\vp \ts M} M^r　\text{が完全}
+   \]
+   が成り立つ。
+\end{rem}
+
+
+
+
+\bfsubsection{定理 7.10}
+\barquo{
+したがって$M$が有限生成または$\frakm$がべき零なら、$M$の任意の極小底(\S 2 参照)は$M$の基底になり、$M$は自由加群である。
+}
+\begin{proof}
+$x_1, \cdots , x_n$を$M$の極小底とする。このとき像$\ol{x_1}, \cdots, \ol{x_n}$は$M/\frakm M$を生成する。もしこれが$A/\frakm$上１次独立でなければ、ある真部分集合$S \subsetneq \{ 1, \cdots , n \}$が存在して$\{ x_i \}_{i \in S}$は$M/\frakm M$の基底になる。
+このとき$M = \sum_{i \in S} Ax_i + \frakm M$が成り立つ。
+
+$M$が有限生成なら、このときNAKが適用できて$M = \sum_{i \in S} Ax_i$である。これは始めに極小底をとってきたことに反する。
+
+$\frakm$がべき零なら、$N =  \sum_{i \in S} A x_i$とすると
+\begin{align*}
+  M &= N + \frakm M \\
+  &= N + \frakm ( N + \frakm M) \\
+  &= N + \frakm^2 M
+\end{align*}
+以下帰納的に、任意の$r$について$M = N + \frakm^r M$が成り立つので、巾零性により$M = N$であることがわかる。これは極小底をとってきたことに矛盾する。
+\end{proof}
+
+
+\bfsubsection{定理 7.11}
+\barquo{
+関手の準同形$\grl \colon F \to G$が$\grl (f \ts b) = b \cdot (f \ts 1_B) \; (f \in \Hom_A(M,N) , b \in B)$で定義できる。
+}
+\begin{proof}
+  $\grl_M \colon F(M) \to G(M)$が自然変換であることを示せばよい。$g \colon M \to M'$が与えられたとする。
+  \[
+  \xymatrix{
+  F(M) \ar[r]^{\grl_M} & G(M) \\
+  F(M') \ar[u]^{g^* \ts 1_B} \ar[r]^{\grl_{M'}} & G(M') \ar[u]_{(g \ts 1_B)^*}
+  }
+  \]
+  の可換性を言えばよい。
+
+  $f' \in \Hom_A(M',N)$と$b \in B$に対して
+  \begin{align*}
+    \grl_M (g^* \ts 1_B) (f' \ts b) &= \grl_M (f' g \ts b) \\
+    &= b \cdot (f'g \ts 1_B) \\
+    (g \ts 1_B)^* \grl_{M'} (f' \ts b) &= (g \ts 1_B)^* (b \cdot (f' \ts 1_B)) \\
+    &= b \cdot ((f' \ts 1_B) \circ (g \ts 1_B) ) \\
+    &= b \cdot (f'g \ts 1_B)
+  \end{align*}
+  が成り立つ。よって示したいことがいえた。
+\end{proof}
+
+
+
+
+\bfsubsection{定理 7.11}
+\barquo{
+さて$F(A^p) = N^p \ts B$, $G(A^p) = (N \ts B)^p$だから
+}
+\begin{proof}
+  $\Hom$関手については次の性質が成り立つことが知られている。
+\begin{gather*}
+  \Hom(A, \prod B_i) \cong \prod \Hom(A,B_i) \\
+  \Hom (\bigoplus A_i , B) \cong \prod \Hom(A_i, B)
+\end{gather*}
+したがって、加群の圏において有限直和と有限直積は同型であるということから、求める式が得られる。
+\end{proof}
+
+
+\bfsubsection{定理 7.11}
+\barquo{
+したがって容易にわかるように左の$\grl$も同型となる。
+}
+\begin{rem}
+  5-lemmaを適用すればよい。5-lemmaの主張は次の通り。
+\end{rem}
+\lem{
+各行が完全であるような可換図式
+\[
+\xymatrix{
+A_1 \ar[r] \ar[d]^{\vp_1} & A_2 \ar[r] \ar[d]^{\vp_2} & A_3 \ar[r]  \ar[d]^{\vp_3} &  A_4 \ar[r] \ar[d]^{\vp_4} & A_5 \ar[d]^{\vp_5} \\
+B_1 \ar[r] & B_2 \ar[r] & B_3 \ar[r] & B_4 \ar[r] & B_5
+}
+\]
+があり、次が成り立つとする。
+\begin{description}
+  \item[(1)] $\vp_4$と$\vp_2$は同型
+  \item[(2)] $\vp_1$は全射
+  \item[(3)] $\vp_5$は単射
+\end{description}
+このとき、$\vp_3$は同型である。
+}
+\begin{proof}
+  ${}$[Osborne]\cite{Osborne}命題2.5を参照のこと。
+\end{proof}

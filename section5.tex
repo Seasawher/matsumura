@@ -1,0 +1,55 @@
+﻿\bfsection{\S 5. Hilbert零点定理と次元論初歩}
+
+
+\bfsubsection{定理 5.6}
+\barquo{
+$r \geq \dim A$を示すには、$P$、$Q$が$k[X]=k[X_1, \cdots , X_n]$の素イデアルで$Q \supset P$、$Q \neq P$なら
+\[
+\trdeg_k k[X]/Q < \trdeg_k k[X]/P
+\]
+であることを示せば十分である。
+}
+\begin{rem}
+先に$A = k[X]/P$としているが、この$P$は引用部の$P$とは別物である。
+\end{rem}
+\begin{proof}
+  引用部を仮定する。$A$での素イデアルの鎖
+  \[
+  0=P_0 \subsetneq P_1 \subsetneq \cdots \subsetneq P_m
+  \]
+  を得る。よって引用部により
+  \[
+  \trdeg_k k[X]/\pi^{-1}(P_m) < \cdots < \trdeg_k k[X]/\pi^{-1}(P_1) < \trdeg_k A = r
+  \]
+  であるから$r \geq m$が判る。ゆえに、$\dim A \leq r$が結論される。
+\end{proof}
+
+
+
+\bfsubsection{定理 5.6}
+\barquo{
+$S = k[X_1, \cdots , X_r] - \single $とおくと$S$は乗法的集合で$P \cap S = \emptyset $、$Q \cap S = \emptyset$となる。
+}
+\begin{proof}
+  $P \cap S \neq \emptyset$と仮定し、$f \in P \cap S$とする。このとき$\ol{f} \in k[X]/P$は$0$である。したがって$f(\gra_1, \cdots , \gra_r)=\ol{f(x_1, \cdots, x_r)} = 0$となる。ところが$\gra_1, \cdots , \gra_r$は$k$上代数的に独立だったから、これは矛盾。
+
+  $Q \cap S = \emptyset$であることも同様。
+\end{proof}
+
+
+
+\bfsubsection{定理 5.6}
+\barquo{
+$P_{i}=Q_i \cap R$とおくと$P_i$は$S$と交わらない$R$の素イデアルで、したがって$\trdeg_k R/P_{r-1} > 0$、よって$P_{r-1}$は$R$の極大イデアルではない。
+}
+\begin{rem}
+  $\trdeg_k R/P_{r-1} > 0$を示そう。$\ol{x}_1 \in R/P_{r-1}$が$k$上代数的でないことをいえばよい。$\ol{x}_1$が$k$上代数的であると仮定する。このとき、
+  \[
+  \sum_{i=0}^n a_i \ol{x}_1^i =0
+  \]
+  なる、$a_i \in k$がある。とくに$a_n \neq 0$となるようにとることができる。したがって
+  \[
+    \sum_{i=0}^n a_i x_1^i \in P_{r-1} \cap S = \emptyset
+  \]
+  となり矛盾である。
+\end{rem}

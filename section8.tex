@@ -1,0 +1,473 @@
+\bfsection{\S 8 完備化とArtin-Reesの補題}
+
+\bfsubsection{\S 8 冒頭}
+\barquo{
+このとき、$\calf$を$0$の近傍系として$M$は(加法に関し)位相群になる。
+}
+
+\begin{rem}
+  次の補題による。
+\end{rem}
+
+\lem{
+$G$を群、$\caln$を$G$の正規部分群よりなる空でない集合とする。もし$\caln$が性質
+\[
+H_1,H_2 \in \caln \; \text{なら} \; H_1 \cap H_2 \in \caln
+\]
+を満たせば、$B$を$gH \; (g \in G, H \in \caln)$という形の部分集合全体の集合とするとき、$B$は$G$の開基となる。また、$B$により定まる位相により$G$は位相群となる。
+}
+\begin{proof}
+  ${}$[雪江]\cite{雪江3} 命題1.3.10を参照のこと。
+\end{proof}
+
+\bfsubsection{\S 8 冒頭}
+\barquo{
+$M$では和、差が連続であるのみならず、$A$の元$a$によるスカラー倍$x \mapsto ax$も$M$から$M$への連続写像になる。
+}
+\begin{proof}
+  $a(x + M_{\grl}) \subset ax + M_{\grl}$による。
+\end{proof}
+
+\bfsubsection{\S 8 冒頭}
+\barquo{
+この位相が分離的(=Hausdorff)であるための必要十分条件は$\bigcap_{\grl} M_{\grl} = 0$である。
+}
+\begin{rem}
+次の命題による。
+\end{rem}
+
+\prop{
+($T_1$空間の特徴付け) \\
+$X$を位相空間とする。このとき次は同値。
+\begin{description}
+  \item[(1)] $X$は$T_1$空間である。つまり任意の$x,y \in X$に対して、$x$のある近傍であって$y$を含まないものが存在する。
+  \item[(2)] 任意の$x \in X$について、$\{x \} \clsub X$が成り立つ。
+  \item[(3)] 任意の$x \in X$について、$x$のすべての近傍の共通部分が$\{x \}$に等しい。
+\end{description}
+}
+\begin{proof}
+  よく知られた事実であるため省略。
+\end{proof}
+
+
+
+\prop{
+台集合が必ずしもHausdorffとは限らない位相群$G$について、次の主張は同値。
+\begin{description}
+  \item[(1)] $G$は$T_1$空間。
+  \item[(2)] $G$はHausdorff空間。
+  \end{description}
+}
+\begin{proof}
+  ${}$[FANF]\cite{FANF} 命題1.3を参照のこと。
+\end{proof}
+
+\prop{
+$X$を位相空間とする。このとき次は同値。
+\begin{description}
+\item[(1)] $X$はHausdorff空間、つまり任意の$x , y \in X$に対して$x,y$の開近傍$U,V$であって$U \cap V = \emptyset$なるものが存在する。
+\item[(2)] 任意の$x \in X$に対して、$x$のすべての閉近傍の共通部分が$\{x \}$に等しい。
+\end{description}
+}
+\begin{proof}
+    ${}$[内田]\cite{内田} 定理21.1を参照のこと。なお、この命題は引用部の証明には不要。単なるオマケである。
+\end{proof}
+
+
+\bfsubsection{\S 8 冒頭}
+\barquo{
+剰余加群$M/M_{\grl}$は(商空間の位相で)ディスクリート空間になる。
+}
+\begin{rem}
+  $M \to M/M_{\grl}$による$0$の引き戻しは$M_{\grl}$で、これが開集合であることから。
+\end{rem}
+
+
+\bfsubsection{\S 8 冒頭}
+\barquo{
+自然な$A$線形写像$M \to \wh{M}$を$\psi$とおくと、$\psi$は連続であり、$\psi(M)$は$\wh{M}$で稠密である。
+}
+\begin{rem}
+  積位相の定義から従う。
+\end{rem}
+
+
+\bfsubsection{\S 8 冒頭}
+\barquo{
+$p_{\grl} \colon M_{\grl} \to M/M_{\grl}$を射影とし$\Ker (p_{\grl}) = M_{\grl}^*$とおくと、$\wh{M}$の位相は$\calf^* = \{ M_{\grl}^*\}$で定義された線形位相と一致することが容易にわかる。
+}
+\begin{proof}
+  $\grl < \mu$のとき次の図式は可換である。
+  \[
+  \xymatrix{
+  {} & \wh{M} \ar[ld]_-{p_{\grl}} \ar[dr]^-{p_{\mu}} & {} \\
+M/M_{\grl} & {} & M/M_{\mu} \ar[ll]_-{\vp_{\grl \mu}}
+  }
+  \]
+  よって$\Ker (p_{\grl}) \supset \Ker(p_{\mu})$である。したがって、
+  \[
+  \Ker (p_{\mu}) = (\prod_{\grl \leq \mu} \{0\} \tm \prod_{\text{otherwise}} M/M_{\grl}) \cap \wh{M}
+  \]
+  が成り立つ。ゆえに、任意の$\mu \in \grL$に対して$0 \in U \subset \Ker(p_{\mu})$なる開集合$U$があること、そして任意の$0$の開近傍$U$に対して$0 \in \Ker(p_{\mu}) \subset U$なる$\mu \in \grL$があることが従う。
+\end{proof}
+
+
+
+\bfsubsection{\S 8 冒頭}
+\barquo{
+一般に、$\psi \colon M \to \wh{M}$が同形写像になるとき$M$を完備であるという。
+}
+\begin{rem}
+  このとき
+  \[
+  \Ker \psi = \bigcap_{\grl } M_{\grl} = 0
+  \]
+  なので特に$M$は線形位相でHausdorff空間になる。
+\end{rem}
+
+
+
+\bfsubsection{\S 8 冒頭}
+\barquo{
+このとき$\llim (M/M_{\grl}) \cong \llim (M/M'_{\grg})$であることが容易にわかり、またこの同形は位相同形でもある。
+}
+\begin{proof}
+  式を見やすくするため$\wh{M} = \llim (M/M_{\grl})$、$\wt{M} = \llim(M/M'_{\grg})$とおく。$\grl \in \grL$に対して$\pi_{\grl} \colon \wt{M} \to M/M_{\grl}$を、次の図式が可換になるように定める。
+\[
+\xymatrix{
+\wt{M} \ar[r]^-{p_{\grd}} \ar[rd]_{\pi_{\grl}} & M/M'_{\grd} \ar[d]^{i_{\grd \grl}}  & \text{($\grd \in \grG, M'_{\grd} \subset M_{\grl}$ )} \\
+{} & M/M_{\grl} & {}
+}
+\]
+  すなわち$M'_{\grd} \subset M_{\grl}$なるある$\grd \in \grG$に対して
+  $\pi_{\grl} = i_{\grd \grl} \circ p_{\grd}$により定める。これは、$\grd$の取り方によらずwell-definedである。($M'_{\grd'} \subset M_{\grl}$なる別の$\grd'$が与えられたとき、$\grG$は有向集合なので$\grd''> \grd, \grd'$なる$\grd''$がとれる。そうすると$ i_{\grd \grl} \circ p_{\grd}$も$i_{\grd' \grl} \circ p_{\grd'}$
+  も$\grd''$で書けて、等しいことがわかる。)
+
+  以下の図式を見ればわかるように、写像の族$\pi_{\grl}$は$\vp_{\grl \mu}$と可換である。
+  \[
+  \xymatrix{
+  M/M'_{\grd} \ar[d]_{i_{\grd \mu}} & \wt{M} \ar[dl]_{\pi_{\mu}} \ar[l]_{p_{\grd}} \ar[r]^{p_{\grd}} \ar[rd]^{\pi_{\grl}} & M/M'_{\grd} \ar[d]^-{i_{\grd \grl}} \\
+  M/M_{\mu} \ar[rr]^-{\vp_{\grl \mu}} & {} & M/M_{\grl}
+  }
+  \]
+  \[
+  (M'_{\grd} \subset M_{\mu} \subset M_{\grl})
+  \]
+したがって、次の図式
+\[
+\xymatrix{
+\wt{M} \ar[d]_-{\pi_{\grl}} \ar[r]^I & \wh{M} \ar[dl]^-{p_{\grl}} \\
+M/M_{\grl} & {}
+}
+\]
+が可換になる$I \colon \wt{M} \to \wh{M}$がある。同様にして、次の図式
+\[
+\xymatrix{
+\wh{M} \ar[d]_-{p_{\grl}} \ar[rd]^-{\pi_{\grd}} & {} & \wh{M} \ar[d]_-{\pi_{\grd}} \ar[r]^J & \wt{M} \ar[dl]^-{p_{\grd}} \\
+M/M_{\grl} \ar[r]_-{j_{\grl \grd}} & M/M'_{\grd} & M/M'_{\grd} & {}
+}
+\]
+\[
+(M_{\grl} \subset M'_{\grd})
+\]
+が可換になるような$\pi_{\grd}$と$J$が存在する。このとき次は可換である。
+\[
+\xymatrix{
+\wt{M} \ar[d]_-{p_{\grd}} \ar[r]^I & \wh{M} \ar[dl]^-{\pi_{\grd}} \\
+M/M'_{\grd} & {}
+}
+\]
+なぜならば、
+\begin{align*}
+  \pi_{\grd} \circ I &= j_{\grl \grd} \circ p_{\grl} \circ I &(M_{\grl} \subset M'_{\grd}) \\
+  &= j_{\grl \grd} \circ \pi_{\grl} \\
+  &= j_{\grl \grd} \circ i_{\grg \grl} \circ p_{\grg} &(M'_{\grg} \subset M_{\grl}) \\
+  &= \vp_{\grd \grg} \circ p_{\grg} \\
+  &= p_{\grd}
+\end{align*}
+であるからである。ゆえに、
+\begin{align*}
+  p_{\grd}JI &= \pi_{\grd} I \\
+  &= p_{\grd}
+\end{align*}
+であるから、逆極限の普遍性により$JI = id$がいえる。逆も同様であり、$I,J$は連続だから位相同形であることも従う。
+
+\end{proof}
+
+
+
+
+
+\bfsubsection{定理 8.1 直前}
+\barquo{
+$\xi = (\xi_{\grl})_{\grl \in \grL} \in \wh{M}$が$\wh{N}$に属するための条件は各$\xi_{\grl}$が$N$の元で代表されること、いいかえればすべての$\grl$に対して$\xi \in \psi(N) + M^*_{\grl}$であることである。
+}
+\begin{proof}
+  ($\To$) $\xi \in \wh{N}$と仮定する。このとき$\xi_{\grl} \in (M_{\grl} + N)/M_{\grl} = N/(N \cap M_{\grl})$の$N$への持ち上げ$\wt{\xi_{\grl}}$をとると、
+  \[
+  p_{\grl}(\xi - \psi(\wt{\xi_{\grl}})) = 0
+  \]
+  だから、$\xi \in \bigcap_{\grl} \psi(N) + M^*_{\grl}$がいえる。
+
+  ($\Leftarrow$) $\xi \in \wh{M}$が任意の$\grl$に対して$\xi \in \psi(N) + M^*_{\grl}$を満たすとする。このとき、ある$x_{\grl} \in N$が存在して$\xi - \psi(x_{\grl}) \in M^*_{\grl}$である。つまり$\xi_{\grl} - \ol{x_{\grl}} = 0 \; \text{in} \; M/M_{\grl}$
+  である。ゆえに$\xi_{\grl} \in (N+M_{\grl})/M_{\grl}$が成り立つので、$\xi \in \wh{N}$である。
+\end{proof}
+
+
+
+
+\bfsubsection{定理 8.1 直後}
+\barquo{
+$\vp_{\grg} \colon \wh{M} \to N/N_{\grg}$を$\wh{M} \to \wh{M} /M^*_{\grl} \to N/N_{\grg}$ (第1の矢は自然な射、第2の矢は$f$からひき起こされたもの) の合成で定義すると
+}
+\begin{rem}
+  次の図式が可換になるように定める。
+  \[
+  \xymatrix{
+  \wh{M} \ar[r]^-{p_{\grl}} \ar[d]_-{\vp_{\grg}} & M/M_{\grl} \ar[dl]^-{f_{\grl \grg}}     &  M \ar[r]^-f \ar[d]_{\pi_{\grl}} & N \ar[d]^{\pi_{\grg}} \\
+  N/N_{\grg} & {}      &  M/M_{\grl} \ar[r]^-{f_{\grl \grg}} & N/N_{\grg}
+  }
+  \]
+\end{rem}
+
+
+
+\bfsubsection{定理 8.1 直後}
+\barquo{
+自然な射$N/N_{\grg'} \to N/N_{\grg}$を$\psi_{\grg \grg'}$で表せば、$\vp_{\grg} = \psi_{\grg \grg'} \circ \vp_{\grg'}$が成り立つことも見やすい。
+}
+\begin{rem}
+  $M_{\grl } \subset f^{-1}(N_{\grg'}) \subset f^{-1}(N_{\grg})$なる$\grl$をとると
+  \begin{align*}
+    \psi_{\grg \grg'} \circ \vp_{\grg'} &= \psi_{\grg \grg'} \circ f_{\grg \grg'} \circ p_{\grl} \\
+    &= f_{\grl \grg} \circ p_{\grl} \\
+    &= \vp_{\grg}
+  \end{align*}
+  であることから。
+\end{rem}
+
+
+
+
+\bfsubsection{定理 8.1 直後}
+\barquo{
+次の図形は可換である。(垂直の矢は自然な写像)しかも、$\wh{f}$はこの可換図形によって一意的に定まる。
+\[
+\xymatrix{
+M \ar[r]^-f \ar[d] & N \ar[d] \\
+\wh{M} \ar[r]^-{\wh{f}} & \wh{N}
+}
+\]
+}
+\begin{proof}
+  一意性は$M \to \wh{M}$の像の稠密性と、完備性(分離性)よりあきらか。可換性を示そう。
+  まず、$\wh{f}$の定義から、
+  \[
+\xymatrix{
+\wh{M} \ar[r]^-{\wh{f}} \ar[d]_-{\vp_{\grg}} & \wh{N} \ar[dl]^{p_{\grg}} \\
+N/N_{\grg} & {}
+}
+  \]
+  が可換であることに注意する。さらに、次の図式も可換である。
+  \[
+  \xymatrix{
+  \wh{M} \ar[dr]_-{p_{\grl}} & M \ar[l]_-{\psi_M} \ar[d]^-{\pi_{\grl}} \ar[r]^-f & N \ar[d]^-{\pi_{\grg}} \ar[r]^-{\psi_N} & \wh{N} \ar[dl]^-{p_{\grg}} \\
+  {} & M/M_{\grl} \ar[r]^-{f_{\grl \grg}} & N/N_{\grg} & {}
+  }
+  \]
+  \[
+  (M_{\grl} \subset f^{-1}(N_{\grg}))
+  \]
+したがって
+\begin{align*}
+  p_{\grg} \wh{f} \psi_M &= \vp_{\grg} \psi_M \\
+  &= f_{\grl \grg}  p_{\grl} \psi_M 　&(M_{\grl} \subset f^{-1}(N_{\grg})) \\
+  &= f_{\grl \grg} \pi_{\grl} \\
+  &= \pi_{\grg} f \\
+  &= p_{\grg} \psi_N f
+\end{align*}
+である。ゆえに$\wh{N}$の普遍性(射の一意性)により
+\[
+\wh{f} \psi_M = \psi_N f
+\]
+が成り立つことがわかる。
+\end{proof}
+
+
+
+\bfsubsection{定理 8.2 直前}
+\barquo{
+容易にわかるように、$M$が$I$進位相で完備ということは、$M$の元の列$x_1, x_2, \cdots $が$x_i - x_{i+1} \in I^iM \; (\forall i)$をみたすとき、$x - x_i \in I^iM \; (\forall i)$をみたす$x \in M$が1つかつただ1つ存在することと同値である。
+}
+\begin{proof}
+  ($\Rightarrow$) 完備性を仮定し、$M$の元の列$x_1, x_2, \cdots $が$x_i - x_{i+1} \in I^iM \; (\forall i)$をみたすとする。このとき$\wt{x} = (\ol{x_i})_{i \geq 1}$は$\wh{M}$の元である。完備性により$\psi \colon M \to \wh{M}$は同形なので、$\wt{x} = \psi(x) $なる$x \in M$
+  がただ一つある。ここで
+  \[
+  \wt{x} = \psi(x) \iff x - x_i \in I^iM \; (\forall i)
+  \]
+  だから示すべきことがいえた。
+
+  ($\Leftarrow$) 逆をいおう。一意性についての仮定から、$M$は分離的でなくてはならない。よって$\psi$は単射。また任意に$y =(y_i) \in \wh{M}$が与えられたとする。$y_i \in M/I^iM$の$M$への持ち上げを$x_i$とすると、$x_i - x_{i+1} \in I^iM$だから、仮定により$x - x_i \in I^iM \; (\forall i)$なる$x \in M$がある。このとき$\psi(x) =y$である。すなわち、$\psi$は全射。
+\end{proof}
+
+
+
+\bfsubsection{定理 8.3}
+\barquo{
+\[
+F - G_n H_n = \sum \gro_i U_i(X), \quad \gro_i \in \frakm^n, \quad \deg U_i < \deg F
+\]
+}
+\begin{rem}
+  $G_n$, $H_n$, $F$はモニックなので$\deg (F - G_n H_n) < \deg F$がいえる。
+\end{rem}
+
+
+
+\bfsubsection{定理 8.3}
+\barquo{
+よって
+\[
+\deg w_i < \deg g
+\]
+である。
+}
+\begin{rem}
+  $\deg v_i < \deg h$と$\deg w_i < \deg g$は、$G_{n+1}, H_{n+1}$のモニック性を保証するために必要。
+\end{rem}
+
+
+
+
+
+\bfsubsection{定理 8.7}
+\barquo{
+$A$をネーター環、$I$をイデアル、$M$を有限$A$加群とする。$M$, $A$の$I$進完備化を$\wh{M}$, $\wh{A}$とすれば
+\[
+M \ts_A \wh{A} \cong \wh{M}
+\]
+である。
+}
+\begin{proof}
+  いったん$M$は任意の$A$加群であるとしておく。逆系$\cala \colon \N^{op} \to \Mod{A}$を
+  \begin{gather*}
+    \cala(n) = A/I^n  \\
+    \cala(n \leq m) \colon A/I^m \to A/I^n
+  \end{gather*}
+  により定める。このとき逆系$M \ts \cala \colon \N^{op} \to \Mod{A}$が誘導される。このとき射影$\pi \colon \llim \cala \to \cala$ (ただし$\llim$は定数関手) は自然変換$M \ts \pi \colon M \ts \llim \cala  \to M \ts \cala $をひきおこす。したがって逆極限の普遍性により次の図式
+  \[
+  \xymatrix{
+  \llim (M \ts \cala) \ar[r]^-p & M \ts \cala \\
+  M \ts \llim \cala \ar[u]^-{\vp_M} \ar[ur]_{M \ts \pi} & {}
+  }
+  \]
+  を可換にする射$\vp_M \colon M \ts \llim \cala \to \llim (M \ts \cala)$がある。このとき$\vp \colon \square \ts \llim \cala \to \llim (\square \ts \cala)$は自然変換になっていることを見よう。
+
+  任意に$A$-線形写像$f \colon M_1 \to M_2$が与えられたとする。このとき自動的に$f$は$I$進位相で連続になることに気をつける。示すべきことは次の図式の可換性である。
+  \[
+  \xymatrix{
+  M_1 \ts \llim \cala \ar[r]^-{f \ts \llim \cala} \ar[d]_-{\vp_{M_1}} & M_2 \ts \llim \cala \ar[d]^-{\vp_{M_2}} \\
+  \llim (M_1 \ts \cala) \ar[r]^-{\la{f \ts \cala}} & \llim (M_2 \ts \cala)
+  }
+  \]
+  生成元をとってくると
+  \begin{align*}
+    \la{f \ts \cala} \circ \vp_{M_1} (x \ts (a_i)_{i \in \N}) &= \la{f \ts \cala} ( (x \ts a_i)_{i \in \N}) \\
+    &= (f (x) \ts a_i)_{i \in \N} \\
+    \vp_{M_2} \circ f \ts \llim \cala (x \ts (a_i)_{i \in \N}) &= \vp_{M_2} (f(x) \ts (a_i)_{i \in \N}) \\
+    &= (f(x) \ts a_i)_{i \in \N}
+  \end{align*}
+  が成り立つ。よって自然性がいえた。
+
+  さてここで$M$が有限生成かつ$A$がNoetherという仮定を使おう。これにより、有限生成自由加群$F_1$, $F_2$による完全系列
+  \[
+  F_1 \to F_2 \to M \to 0
+  \]
+  が存在することがわかる。このとき$\vp$の自然性から次は可換である。
+  \[
+  \xymatrix{
+  F_1 \ts \llim \cala  \ar[r] \ar[d]_-{\vp_{F_1}} & F_2 \ts \llim \cala \ar[r] \ar[d]_-{\vp_{F_2}} & M \ts \llim \cala \ar[r] \ar[d]_-{\vp_{M}} & 0 \\
+  \llim (F_1 \ts \cala) \ar[r] & \llim (F_2 \ts \cala) \ar[r] & \llim (M \ts \cala) \ar[r] & 0
+  }
+  \]
+  さらに上の行はテンソル積の右完全性から完全で、下の行は定理1と定理6により完全である。(定理1では特殊な形の短完全列しか扱っていないように見えるが、すべての短完全列は$0 \to N \to M \to M/N \to 0$という形の短完全列と同型であるので、実はそれで十分である) 有限生成自由加群についてはあきらかに同型がいえる。したがって、5項補題により$\vp_M$は同型。
+
+\end{proof}
+
+
+\bfsubsection{定理 8.10}
+\barquo{
+ii) $A$がネータ整域、$I$が$A$の真のイデアルならば
+\[
+\bigcap_{n>0} I^n = (0).
+\]
+}
+\begin{rem}
+  $A$が整域という仮定は必要である。たとえば次のような例がある。$K$を体とし、$A = K \tm K$, $I = K \tm \{0\}$とする。このとき$A$はネーター環だが任意の$n$について$I^n = I$である。
+\end{rem}
+
+
+\bfsubsection{定理 8.11}
+\barquo{
+$M/I^nM$は$I$進位相でディスクリート、したがって完備であって、
+}
+\begin{proof}
+  実際に計算してみると$(M/I^n M)$の$I$進完備化は
+  \begin{align*}
+     \llim_{m} (M/I^n M)/ I^m(M/I^n M) &= \llim_m (M/I^n M)/(I^m M + I^n M / I^n M) \\
+     &= \llim_m M/(I^m M + I^n M) \\
+     &\cong M/I^n M
+  \end{align*}
+  である。
+\end{proof}
+
+
+
+
+\bfsubsection{定理 8.12}
+\barquo{
+前定理の証明で、$I^n\wh{M}$が$\wh{M} \to (M/I^nM)^{\wedge}$の核であることを示したのと同様にして、$J\wh{M}$は$\wh{M} \to (M/JM)^{\wedge}$の核であることがわかる。それは定理1より$\psi(JM)$の閉包に等しいから第2の等号が成立つ。
+}
+\begin{rem}
+  正直に白状しますが、同様にしてみたけどわかりませんでした。代わりに次のようにして第2の等号を示した。
+  \begin{align*}
+    (JM)^{\wedge} &= JM \ts \wh{A} &(\text{$A$はNoether}) \\
+    &= \Im(J \ts M \to M) \ts \wh{A} \\
+    &= \Im (J \ts M \ts \wh{A} \to M \ts \wh{A}) &(\text{$\wh{A}$は$A$平坦}) \\
+    &= \Im (J \ts \wh{M}  \to \wh{M}) \\
+    &= J \wh{M}
+  \end{align*}
+\end{rem}
+
+
+
+\bfsubsection{定理 8.14}
+\barquo{
+しかるに$\frakm$は$A$で閉集合であるから$\frakm \wh{A} \cap A = \frakm$が成り立つ。
+}
+\begin{proof}
+  定理8.11により自然な写像$\psi \colon A \to \wh{A}$は像への同相なので$\frakm \clsub A$より$\psi(\frakm )\clsub \psi(A)$である。したがって$\psi(A)$において閉包をとっても変わらないのだから$\frakm \wh{A} \cap \psi(A) = \psi(\frakm)$である。したがって、$\psi$で引き戻して
+  $\frakm \wh{A} \cap A = \frakm$がわかる。
+\end{proof}
+
+
+
+
+\bfsubsection{定理 8.15 直後}
+\barquo{
+4) $\wh{A}$もネータ局所環で、その極大イデアルは$\wh{A}$
+}
+\begin{rem}
+$\wh{A}$が局所環になることは、次の補題による。
+\end{rem}
+
+\lem{
+$A$は環、$\frakm \subset A$はイデアルで、$A$の$\frakm$進完備化を$\wh{A}$と書くことにする。$a=(a_i ) \in \wh{A}$とする。このとき次は同値。
+\begin{description}
+  \item[(1)] $a \in \wh{A}$は単元
+  \item[(2)] $a_1 \in A/\frakm$は単元
+\end{description}
+}
+\begin{proof}
+  証明はやさしいが、書くのが面倒なので[雪江]\cite{雪江3} 定理3.1.13(2)を参照のこと。
+\end{proof}
